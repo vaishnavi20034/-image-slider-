@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.slider {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slides {
+    display: flex;
+    width: 3200px;
+    height: 500px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text Overlay */
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+}
+
+.caption h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.caption p {
+    font-size: 16px;
+}
+
+/* Previous and Next Buttons */
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.prev:hover,
+.next:hover {
+    background: black;
+}
+
+/* Dots */
+
+.dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.dot.active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 850px) {
+
+    .slider {
+        width: 90%;
+        height: auto;
+    }
+
+    .slides {
+        width: 400%;
+        height: auto;
+    }
+
+    .slide {
+        width: 25%;
+        height: auto;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .caption {
+        padding: 15px;
+    }
+
+    .caption h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .caption p {
+        font-size: 13px;
+    }
+
+    .prev,
+    .next {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .dots {
+        bottom: 10px;
+    }
+
+    .dot {
+        width: 9px;
+        height: 9px;
+    }
+}
